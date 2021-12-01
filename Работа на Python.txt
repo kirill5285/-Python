@@ -1,0 +1,25 @@
+import time
+def decorator(func):
+    start = time.time()
+    print("Была вызвана функция{}".format(func))
+    func()
+    print(f"Time: {time.time()-start}")
+
+def ex1():
+    print("введите переменные n,s")
+    from math import tan, pi
+    n = int(input("n: "))
+    s = float(input("s: "))
+    area=(n * (s * s) / (4 * tan(pi / n)))
+    area = round(area)
+    print("Ответ ",area)
+def ex2():
+    n = int(input('Введите N:'))
+    def sumn(n):
+        if n == 0:
+            return n
+        else:
+            return (n + sumn(n - 1))
+    print(f'Сумма чисел от 1 до {n} = {sumn(n)} ')
+decorator(ex1)
+decorator(ex2)
